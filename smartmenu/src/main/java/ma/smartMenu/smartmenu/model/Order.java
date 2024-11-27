@@ -1,6 +1,7 @@
 package ma.smartMenu.smartmenu.model;
 
 import jakarta.persistence.*;
+import lombok.Builder;
 import lombok.Getter;
 import lombok.Setter;
 import ma.smartMenu.smartmenu.enums.OrderState;
@@ -14,6 +15,7 @@ import java.util.UUID;
 @Table(name = "orders")
 @Setter
 @Getter
+@Builder
 public class Order {
 
     @Id

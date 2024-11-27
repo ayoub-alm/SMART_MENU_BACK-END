@@ -4,8 +4,10 @@ import lombok.Builder;
 import lombok.NoArgsConstructor;
 import ma.smartMenu.smartmenu.model.Ingredient;
 import ma.smartMenu.smartmenu.model.Product;
+import ma.smartMenu.smartmenu.model.ProductImage;
 import ma.smartMenu.smartmenu.model.Seller;
 
+import java.util.List;
 import java.util.Set;
 import java.util.UUID;
 
@@ -22,6 +24,7 @@ public class ProductResponseDto {
     public boolean state = true;
     public SellerResponseDto seller;
     public Set<Ingredient> ingredients;
+    public List<ProductImage> images;
 
     public ProductResponseDto(Product product) {
         this.name = product.name;
@@ -33,5 +36,6 @@ public class ProductResponseDto {
         this.state = product.state;
         this.price = product.price;
         this.ingredients = product.ingredients;
+        this.images = product.getImages();
     }
 }
