@@ -12,7 +12,7 @@ import java.util.Optional;
 
 @RestController
 @CrossOrigin(origins = "http://localhost:4200")
-@RequestMapping("/categories")
+@RequestMapping("/api/categories")
 public class ProductCategoryController {
     @Autowired
     private ProductCategoryService productCategoryService;

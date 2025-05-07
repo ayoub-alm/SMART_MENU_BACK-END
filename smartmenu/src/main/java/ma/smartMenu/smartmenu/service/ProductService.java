@@ -85,7 +85,7 @@ public class ProductService {
     }
 
     /**
-     * This Function allows us to get list of products by category_id
+     * This Function allows us to get list of products by ref
      * @param category_ref The category ref
      * @return List of products
      */
@@ -93,6 +93,17 @@ public class ProductService {
         List<Product> products = this.productRepository.findByCategory_Ref(category_ref);
         return products.stream().map(ProductResponseDto::new).collect(Collectors.toList());
     }
+
+    /**
+     * This Function allows us to get list of products by category_id
+     * @param categoryId The category id
+     * @return List of products
+     */
+    public List<ProductResponseDto> getProductsByCategoryId(Long categoryId){
+        List<Product> products = this.productRepository.findByCategory_Id(categoryId);
+        return products.stream().map(ProductResponseDto::new).collect(Collectors.toList());
+    }
+
 
     /**
      * This function allows us to get list of products by seller ID

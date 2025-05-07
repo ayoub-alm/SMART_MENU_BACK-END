@@ -13,7 +13,7 @@ import java.util.UUID;
 
 @RestController
 @CrossOrigin(origins = "http://localhost:4200")
-@RequestMapping("products")
+@RequestMapping("/api/products")
 public class ProductController {
     private final ProductService productService;
     public ProductController(ProductService productService){
@@ -47,13 +47,23 @@ public class ProductController {
     }
     /**
      * This end-point allows to get products By category id
-     * @param category_ref The category id
+     * @param category_ref The category ref
      * @return list of products
      */
     @GetMapping("/category/{category_ref}")
     public List<ProductResponseDto> getProductsByCategory(@PathVariable UUID category_ref){
         return productService.getProductsByCategoryRef(category_ref);
     }
+    /**
+     * This end-point allows to get products By category id
+     * @param category_id The category id
+     * @return list of products
+     */
+    @GetMapping("/category/id/{category_id}")
+    public List<ProductResponseDto> getProductsByCategory(@PathVariable Long category_id){
+        return productService.getProductsByCategoryId(category_id);
+    }
+    
 
     /**
      * This end-point allows to save new Product
